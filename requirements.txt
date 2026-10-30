@@ -1,0 +1,7 @@
+requests
+pandas
+beautifulsoup4
+networkx
+matplotlib
+nltk
+python-dotenv

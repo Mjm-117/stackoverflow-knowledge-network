@@ -19,3 +19,13 @@ data/       extracted CSVs
 src/        extraction, graph building, analysis
 notebooks/  exploration and figures
 ```
+
+## Setup
+
+```
+pip install -r requirements.txt
+cp .env.example .env   # optional: paste your Stack Exchange API key
+python src/fetch.py --tag python --max-questions 3000
+```
+
+Raw JSON is written to `data/raw/` (git-ignored). Without a key the API allows 300 requests/day; with a key, 10,000.
