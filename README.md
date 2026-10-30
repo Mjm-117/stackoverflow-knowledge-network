@@ -25,7 +25,7 @@ notebooks/  exploration and figures
 ```
 pip install -r requirements.txt
 cp .env.example .env   # optional: paste your Stack Exchange API key
-python src/fetch.py --tag python --max-questions 3000
+python src/fetch.py --tag python --from-date 2025-01-01 --to-date 2026-01-01
 ```
 
-Raw JSON is written to `data/raw/` (git-ignored). Without a key the API allows 300 requests/day; with a key, 10,000.
+Fetches the newest questions in the date window that have an accepted answer (up to `--max-questions`, default 3000), then their answers. Raw JSON is written to `data/raw/` (git-ignored). Answers are saved after every batch of 100 questions; if the daily quota runs out, re-run the same command to resume. Without a key the API allows 300 requests/day; with a key, 10,000.
