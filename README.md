@@ -14,6 +14,8 @@ Build and analyze a knowledge network from StackOverflow, treating it as a massi
 
 ## Progress
 
+Full spec, design decisions and weekly plan: [docs/project_plan.md](docs/project_plan.md).
+
 | Week | Task | Status |
 |---|---|---|
 | 8 | Setup, API access, fetch script | done (`src/fetch.py`) |
