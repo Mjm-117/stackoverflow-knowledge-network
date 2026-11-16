@@ -28,6 +28,7 @@ SITE = "stackoverflow"
 PAGE_SIZE = 100
 ID_BATCH = 100  # the API accepts up to 100 semicolon-separated ids per call
 RETRIES = 3
+MAX_PAGES_NO_KEY = 25  # the API refuses page > 25 without a key or access token
 REPO_ROOT = Path(__file__).resolve().parent.parent
 
 
@@ -91,6 +92,9 @@ def fetch_questions(session, tag, from_date, to_date, max_questions, key):
         if not data["has_more"]:
             break
         check_quota(data)
+        if not key and page >= MAX_PAGES_NO_KEY:
+            print(f"stopping at page {page}: deeper pages need an API key")
+            break
         page += 1
     return questions[:max_questions]
 
